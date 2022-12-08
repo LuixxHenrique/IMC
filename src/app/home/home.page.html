@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      IMC
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,30 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">IMC</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-item>
+    <ion-label position="floating">Peso:</ion-label>
+    <ion-input [(ngModel)]="peso" name="peso"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Altura:</ion-label>
+    <ion-input [(ngModel)]="altura" name="altura"></ion-input>
+  </ion-item>
+
+  <ion-select [(ngModel)]="opcao">
+    <ion-select-option value="m">Masculino</ion-select-option>
+    <ion-select-option value="f">Feminino</ion-select-option>
+  </ion-select>
+
+    <ion-button (click)="imc()" color="dark" shape="block">IMC</ion-button>
+    <p>{{ saida }}</p>
+    <strong> {{ mensagem }}</strong>
+  <ion-img src={{imagem}}></ion-img>
+  <!---<ion-img src="(assets/icon/favicon.png)"></ion-img>--->
   </div>
 </ion-content>

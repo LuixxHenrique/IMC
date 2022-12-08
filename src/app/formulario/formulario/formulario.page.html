@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Formulario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<form #form="ngForm" [formGroup]="pessoaForm" (ngSubmit)="submit()"></form>
+<form (ngSubmit)="submit()">
+
+<ion-item>
+  <ion-label position="floating">Nome</ion-label>
+  <ion-input [(ngModel)]="pessoa.nome" type="text"></ion-input>
+  <small class="error" *ngIf="(pessoaForm.get('nome').errors?.required || pessoaForm.get('nome').errors?.minLength) && form.submitted">
+    Informe um nome válido de 3 a 50 caracteres</small>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Email</ion-label>
+  <ion-input [(ngModel)]="pessoa.email" formControlName="email" type="email"></ion-input>
+  <small class="error" *ngIf="(pessoaForm.get('email').errors?.required || pessoaForm.get('email').errors?.minLength) && form.submitted">
+    Informe um email válido</small>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">CPF</ion-label>
+  <ion-input [(ngModel)]="pessoa.cpf" formControlName="cpf" type="cpf"></ion-input>
+  <small class="error" *ngIf="(pessoaForm.get('cpf').errors?.required || pessoaForm.get('cpf').errors?.minLength) && form.submitted">
+    Informe um CPF válido</small>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Telefone</ion-label>
+  <ion-input [(ngModel)]="pessoa.cpf" formControlName="telefone" type="telefone"></ion-input>
+  <small class="error" *ngIf="(pessoaForm.get('telefone').errors?.required || pessoaForm.get('telefone').errors?.minLength) && form.submitted">
+    Informe um telefone válido</small>
+</ion-item>
+
+<ion-button type="submit">Confirmar</ion-button>
+
+</form>
+
+</ion-content>
+  
